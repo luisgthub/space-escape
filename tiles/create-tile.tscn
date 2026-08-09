@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b3qtqo368vhtv"]
+
+[ext_resource type="PackedScene" uid="uid://cv0t7fod8u4s1" path="res://tiles/tile.tscn" id="1_3kpto"]
+[ext_resource type="Script" uid="uid://do7scqr66c06a" path="res://tiles/create_tile.gd" id="2_3kpto"]
+[ext_resource type="Texture2D" uid="uid://c2e7ken6124hs" path="res://assets/tiles/create-tile-lever.png" id="3_3kpto"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhunq"]
+font_size = 2
+
+[node name="tile" unique_id=1890614271 instance=ExtResource("1_3kpto")]
+script = ExtResource("2_3kpto")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1410453024]
+texture = ExtResource("3_3kpto")
+
+[node name="Label" type="Label" parent="." index="2" unique_id=880543767]
+offset_left = -5.0
+offset_top = -11.0
+offset_right = 5.0
+offset_bottom = -8.0
+text = "Space"
+label_settings = SubResource("LabelSettings_bhunq")
+
+[node name="Marker2D" type="Marker2D" parent="." index="3" unique_id=2044583594]
+
+[connection signal="body_entered" from="." to="." method="_on_body_lever_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_lever_exited"]

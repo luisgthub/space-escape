@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://7b2g7jx5y5tr"]
+
+[ext_resource type="PackedScene" uid="uid://cv0t7fod8u4s1" path="res://tiles/tile.tscn" id="1_a74kr"]
+[ext_resource type="Texture2D" uid="uid://cx6wdys7fe41b" path="res://assets/tiles/horizon-lever-off.png" id="2_k175b"]
+[ext_resource type="Script" uid="uid://v2c1l31flgao" path="res://tiles/lever_horizon_tile.gd" id="2_oarx8"]
+[ext_resource type="AudioStream" uid="uid://5h4ls0khdaqo" path="res://sounds/playerwalk.wav" id="4_yptia"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhunq"]
+font_size = 2
+
+[node name="tile" unique_id=1890614271 instance=ExtResource("1_a74kr")]
+script = ExtResource("2_oarx8")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1410453024]
+texture = ExtResource("2_k175b")
+
+[node name="Label" type="Label" parent="." index="2" unique_id=880543767]
+offset_left = -5.0
+offset_top = -11.0
+offset_right = 5.0
+offset_bottom = -8.0
+text = "Space"
+label_settings = SubResource("LabelSettings_bhunq")
+
+[node name="use" type="AudioStreamPlayer2D" parent="." index="3" unique_id=1930007192]
+stream = ExtResource("4_yptia")
+
+[connection signal="body_entered" from="." to="." method="_on_body_lever_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_lever_exited"]

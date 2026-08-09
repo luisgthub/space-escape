@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://toqd84r8up7d"]
+
+[ext_resource type="Script" uid="uid://cab4uqs28riq" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://clgsgtv3qft3t" path="res://assets/background.png" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cbcdwlwob7ynr" path="res://menus/ui.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dvrppq1skdrdg" path="res://star.tscn" id="4_4c57u"]
+[ext_resource type="PackedScene" uid="uid://c4suekxh87xy4" path="res://tile-limit.tscn" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://b0bknrsssg8ow" path="res://assets/restart.png" id="6_272bh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7mycd"]
+font_size = 4
+
+[node name="main" type="Node2D" unique_id=1534841372]
+z_index = 2
+script = ExtResource("1_lquwl")
+
+[node name="Label" type="Label" parent="." unique_id=1792283302]
+offset_left = 90.0
+offset_top = 10.0
+offset_right = 128.0
+offset_bottom = 26.0
+label_settings = SubResource("LabelSettings_7mycd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=932372689 groups=["void"]]
+z_index = -3
+offset_right = 192.0
+offset_bottom = 192.0
+texture = ExtResource("2_h2yge")
+stretch_mode = 4
+
+[node name="star" parent="TextureRect" unique_id=189347383 instance=ExtResource("4_4c57u")]
+position = Vector2(38, 155)
+scale = Vector2(0.5, 0.5)
+
+[node name="star2" parent="TextureRect" unique_id=1958548351 instance=ExtResource("4_4c57u")]
+position = Vector2(163, 87)
+scale = Vector2(0.5, 0.5)
+
+[node name="star3" parent="TextureRect" unique_id=428224116 instance=ExtResource("4_4c57u")]
+position = Vector2(155, 170)
+scale = Vector2(0.5, 0.5)
+
+[node name="star4" parent="TextureRect" unique_id=704086881 instance=ExtResource("4_4c57u")]
+position = Vector2(90, 13)
+scale = Vector2(0.5, 0.5)
+
+[node name="ui" parent="." unique_id=1103247525 instance=ExtResource("3_h2yge")]
+offset = Vector2(5, 5)
+transform = Transform2D(1, 0, 0, 1, 5, 5)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=921747380]
+anchor_mode = 0
+
+[node name="limit" parent="." unique_id=376387653 instance=ExtResource("6_7mycd")]
+
+[node name="levelcontainer" type="Node2D" parent="." unique_id=1771805395]
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1070813983]
+offset_left = 169.0
+offset_top = 171.0
+offset_right = 185.0
+offset_bottom = 187.0
+texture_normal = ExtResource("6_272bh")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

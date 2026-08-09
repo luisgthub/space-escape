@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://s7er66p85xvg"]
+
+[ext_resource type="Texture2D" uid="uid://wyp82cec5aax" path="res://assets/wall.png" id="1_mub31"]
+[ext_resource type="PackedScene" uid="uid://djkr5v8i4nkks" path="res://tiles/tileborder.tscn" id="2_ln8rm"]
+[ext_resource type="PackedScene" uid="uid://c6ftygaix0lac" path="res://tiles/start-tile.tscn" id="3_a5bpx"]
+[ext_resource type="PackedScene" uid="uid://x4l4vq4xxcbt" path="res://tiles/level-vertical-tile.tscn" id="4_dscan"]
+[ext_resource type="PackedScene" uid="uid://bhjk648dk7l0l" path="res://tiles/point-tile.tscn" id="6_ln8rm"]
+[ext_resource type="PackedScene" uid="uid://bftqvevvr37yf" path="res://tiles/static_tile.tscn" id="6_ti5b6"]
+[ext_resource type="PackedScene" uid="uid://iyyhdie38qve" path="res://player/player.tscn" id="7_l7rxp"]
+[ext_resource type="PackedScene" uid="uid://cd6kfhsfqewm0" path="res://vertical-box.tscn" id="8_k5ivc"]
+[ext_resource type="PackedScene" uid="uid://d3vsvbpoq71u7" path="res://tiles/teleport-tile.tscn" id="10_ompkf"]
+[ext_resource type="PackedScene" uid="uid://b3qtqo368vhtv" path="res://tiles/create-tile.tscn" id="12_a5bpx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qvtyd"]
+texture = ExtResource("1_mub31")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ud5cb"]
+sources/0 = SubResource("TileSetAtlasSource_qvtyd")
+
+[node name="Node2D" type="Node2D" unique_id=159762314]
+
+[node name="wall" type="TileMapLayer" parent="." unique_id=186395051]
+tile_set = SubResource("TileSet_ud5cb")
+
+[node name="tiles" type="Node2D" parent="." unique_id=1628651914]
+
+[node name="tile3" parent="tiles" unique_id=1293800187 instance=ExtResource("2_ln8rm")]
+position = Vector2(88, 72)
+
+[node name="tile6" parent="tiles" unique_id=809646286 instance=ExtResource("2_ln8rm")]
+position = Vector2(120, 56)
+
+[node name="tile9" parent="tiles" unique_id=855763130 instance=ExtResource("3_a5bpx")]
+position = Vector2(40, 72)
+
+[node name="tile5" parent="tiles" unique_id=8555250 instance=ExtResource("2_ln8rm")]
+position = Vector2(72, 56)
+
+[node name="tile10" parent="tiles" unique_id=1632574219 instance=ExtResource("2_ln8rm")]
+position = Vector2(72, 104)
+
+[node name="tile" parent="tiles" unique_id=2016516179 instance=ExtResource("4_dscan")]
+position = Vector2(40, 56)
+
+[node name="tile7" parent="tiles" unique_id=1890614271 instance=ExtResource("2_ln8rm")]
+position = Vector2(152, 72)
+
+[node name="point-tile" parent="tiles" unique_id=557948859 instance=ExtResource("6_ln8rm")]
+position = Vector2(88, 56)
+
+[node name="static-tile" parent="." unique_id=82892512 instance=ExtResource("6_ti5b6")]
+position = Vector2(88, 40)
+
+[node name="player" parent="." unique_id=597716857 instance=ExtResource("7_l7rxp")]
+z_index = 2
+position = Vector2(40, 71)
+
+[node name="box" parent="." unique_id=2126272801 instance=ExtResource("8_k5ivc")]
+position = Vector2(48, 112)
+
+[node name="tile4" parent="." unique_id=676361611 instance=ExtResource("2_ln8rm")]
+position = Vector2(72, 88)
+
+[node name="teleport_a" parent="." unique_id=92795594 node_paths=PackedStringArray("destiny") instance=ExtResource("10_ompkf")]
+position = Vector2(72, 72)
+destiny = NodePath("../teleport_b")
+
+[node name="teleport_b" parent="." unique_id=519962501 node_paths=PackedStringArray("destiny") instance=ExtResource("10_ompkf")]
+position = Vector2(136, 56)
+destiny = NodePath("../teleport_a")
+
+[node name="tile10" parent="." unique_id=597017440 instance=ExtResource("2_ln8rm")]
+position = Vector2(104, 88)
+
+[node name="tile11" parent="." unique_id=35920984 instance=ExtResource("2_ln8rm")]
+position = Vector2(104, 104)
+
+[node name="tile12" parent="." unique_id=1221409835 instance=ExtResource("2_ln8rm")]
+position = Vector2(152, 56)
+
+[node name="tile" parent="." unique_id=1515255852 node_paths=PackedStringArray("tile_alvo") instance=ExtResource("12_a5bpx")]
+position = Vector2(168, 56)
+tile_alvo = NodePath("../tiles/point-tile")

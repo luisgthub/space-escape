@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c6ftygaix0lac"]
+
+[ext_resource type="PackedScene" uid="uid://cv0t7fod8u4s1" path="res://tiles/tile.tscn" id="1_agtgj"]
+[ext_resource type="Texture2D" uid="uid://ncsn7iha2lr8" path="res://assets/tiles/start-tile.png" id="2_agtgj"]
+
+[node name="tile" unique_id=1890614271 instance=ExtResource("1_agtgj")]
+script = null
+
+[node name="Sprite2D" parent="." index="0" unique_id=1410453024]
+texture = ExtResource("2_agtgj")

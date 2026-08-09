@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bhjk648dk7l0l"]
+
+[ext_resource type="PackedScene" uid="uid://cv0t7fod8u4s1" path="res://tiles/tile.tscn" id="1_jfypg"]
+[ext_resource type="Texture2D" uid="uid://bvietsli56x8i" path="res://assets/tiles/point-tile.png" id="2_5h0jv"]
+[ext_resource type="Script" uid="uid://bitsnptovpdqt" path="res://tiles/point_tile.gd" id="2_xnr2s"]
+
+[node name="tile" unique_id=1890614271 instance=ExtResource("1_jfypg")]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_xnr2s")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1410453024]
+texture = ExtResource("2_5h0jv")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=582897854]
+disabled = true

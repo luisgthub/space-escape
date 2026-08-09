@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://u7xnej0kenbv"]
+
+[ext_resource type="Texture2D" uid="uid://wyp82cec5aax" path="res://assets/wall.png" id="1_p3cgv"]
+[ext_resource type="PackedScene" uid="uid://djkr5v8i4nkks" path="res://tiles/tileborder.tscn" id="2_xo8nd"]
+[ext_resource type="PackedScene" uid="uid://c6ftygaix0lac" path="res://tiles/start-tile.tscn" id="3_8rxpa"]
+[ext_resource type="PackedScene" uid="uid://x4l4vq4xxcbt" path="res://tiles/level-vertical-tile.tscn" id="4_62314"]
+[ext_resource type="PackedScene" uid="uid://bhjk648dk7l0l" path="res://tiles/point-tile.tscn" id="5_blg1i"]
+[ext_resource type="PackedScene" uid="uid://bftqvevvr37yf" path="res://tiles/static_tile.tscn" id="6_2mr80"]
+[ext_resource type="PackedScene" uid="uid://iyyhdie38qve" path="res://player/player.tscn" id="7_7ndg4"]
+[ext_resource type="PackedScene" uid="uid://cd6kfhsfqewm0" path="res://vertical-box.tscn" id="8_1rsbk"]
+[ext_resource type="PackedScene" uid="uid://d3vsvbpoq71u7" path="res://tiles/teleport-tile.tscn" id="9_kykqu"]
+[ext_resource type="PackedScene" uid="uid://b3qtqo368vhtv" path="res://tiles/create-tile.tscn" id="10_h8sls"]
+[ext_resource type="PackedScene" uid="uid://00186ykfa1t" path="res://horizon-box.tscn" id="11_8rxpa"]
+[ext_resource type="PackedScene" uid="uid://7b2g7jx5y5tr" path="res://tiles/lever-horizon-tile.tscn" id="12_62314"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qvtyd"]
+texture = ExtResource("1_p3cgv")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ud5cb"]
+sources/0 = SubResource("TileSetAtlasSource_qvtyd")
+
+[node name="Node2D" type="Node2D" unique_id=159762314]
+
+[node name="wall" type="TileMapLayer" parent="." unique_id=186395051]
+tile_set = SubResource("TileSet_ud5cb")
+
+[node name="tiles" type="Node2D" parent="." unique_id=1628651914]
+
+[node name="tile3" parent="tiles" unique_id=1293800187 instance=ExtResource("2_xo8nd")]
+position = Vector2(56, 104)
+
+[node name="tile6" parent="tiles" unique_id=809646286 instance=ExtResource("2_xo8nd")]
+position = Vector2(72, 104)
+
+[node name="tile9" parent="tiles" unique_id=855763130 instance=ExtResource("3_8rxpa")]
+position = Vector2(40, 72)
+
+[node name="tile5" parent="tiles" unique_id=8555250 instance=ExtResource("2_xo8nd")]
+position = Vector2(72, 56)
+
+[node name="tile" parent="tiles" unique_id=2016516179 instance=ExtResource("4_62314")]
+position = Vector2(152, 88)
+
+[node name="tile7" parent="tiles" unique_id=1890614271 instance=ExtResource("2_xo8nd")]
+position = Vector2(152, 72)
+
+[node name="point-tile" parent="tiles" unique_id=557948859 instance=ExtResource("5_blg1i")]
+position = Vector2(152, 104)
+
+[node name="static-tile" parent="." unique_id=82892512 instance=ExtResource("6_2mr80")]
+position = Vector2(152, 120)
+
+[node name="player" parent="." unique_id=597716857 instance=ExtResource("7_7ndg4")]
+z_index = 2
+position = Vector2(40, 71)
+
+[node name="box" parent="." unique_id=2126272801 instance=ExtResource("8_1rsbk")]
+position = Vector2(128, 64)
+
+[node name="tile4" parent="." unique_id=676361611 instance=ExtResource("2_xo8nd")]
+position = Vector2(155, 35)
+
+[node name="teleport_a" parent="." unique_id=92795594 node_paths=PackedStringArray("destiny") instance=ExtResource("9_kykqu")]
+position = Vector2(72, 72)
+destiny = NodePath("../teleport_b")
+
+[node name="teleport_b" parent="." unique_id=519962501 node_paths=PackedStringArray("destiny") instance=ExtResource("9_kykqu")]
+position = Vector2(120, 120)
+destiny = NodePath("../teleport_a")
+
+[node name="tile10" parent="." unique_id=597017440 instance=ExtResource("2_xo8nd")]
+position = Vector2(40, 104)
+
+[node name="tile11" parent="." unique_id=35920984 instance=ExtResource("2_xo8nd")]
+position = Vector2(104, 104)
+
+[node name="tile12" parent="." unique_id=1221409835 instance=ExtResource("2_xo8nd")]
+position = Vector2(56, 72)
+
+[node name="tile" parent="." unique_id=1515255852 node_paths=PackedStringArray("tile_alvo") instance=ExtResource("10_h8sls")]
+position = Vector2(72, 120)
+tile_alvo = NodePath("../tiles/point-tile")
+
+[node name="box2" parent="." unique_id=1215516588 instance=ExtResource("11_8rxpa")]
+position = Vector2(96, 80)
+
+[node name="tile2" parent="." unique_id=1200610250 instance=ExtResource("12_62314")]
+position = Vector2(120, 104)
+
+[node name="teleport_c" parent="." unique_id=886547073 node_paths=PackedStringArray("destiny") instance=ExtResource("9_kykqu")]
+position = Vector2(168, 72)
+destiny = NodePath("../teleport_d")
+
+[node name="teleport_d" parent="." unique_id=1026010157 node_paths=PackedStringArray("destiny") instance=ExtResource("9_kykqu")]
+position = Vector2(104, 72)
+destiny = NodePath("../teleport_c")

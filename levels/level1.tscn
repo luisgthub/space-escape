@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://csle81h3ec1vt"]
+
+[ext_resource type="Texture2D" uid="uid://wyp82cec5aax" path="res://assets/wall.png" id="2_omn1t"]
+[ext_resource type="PackedScene" uid="uid://djkr5v8i4nkks" path="res://tiles/tileborder.tscn" id="3_lf3p4"]
+[ext_resource type="PackedScene" uid="uid://x4l4vq4xxcbt" path="res://tiles/level-vertical-tile.tscn" id="4_8hd6v"]
+[ext_resource type="PackedScene" uid="uid://c6ftygaix0lac" path="res://tiles/start-tile.tscn" id="5_bekh1"]
+[ext_resource type="PackedScene" uid="uid://cd6kfhsfqewm0" path="res://vertical-box.tscn" id="7_045es"]
+[ext_resource type="PackedScene" uid="uid://bftqvevvr37yf" path="res://tiles/static_tile.tscn" id="7_f7u7y"]
+[ext_resource type="PackedScene" uid="uid://iyyhdie38qve" path="res://player/player.tscn" id="8_jq2cn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qvtyd"]
+texture = ExtResource("2_omn1t")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ud5cb"]
+sources/0 = SubResource("TileSetAtlasSource_qvtyd")
+
+[node name="Node2D" type="Node2D" unique_id=159762314]
+
+[node name="wall" type="TileMapLayer" parent="." unique_id=186395051]
+tile_set = SubResource("TileSet_ud5cb")
+
+[node name="tiles" type="Node2D" parent="." unique_id=1628651914]
+
+[node name="tile3" parent="tiles" unique_id=1293800187 instance=ExtResource("3_lf3p4")]
+position = Vector2(88, 88)
+
+[node name="tile4" parent="tiles" unique_id=268831034 instance=ExtResource("3_lf3p4")]
+position = Vector2(88, 120)
+
+[node name="tile6" parent="tiles" unique_id=809646286 instance=ExtResource("3_lf3p4")]
+position = Vector2(88, 104)
+
+[node name="tile9" parent="tiles" unique_id=855763130 instance=ExtResource("5_bekh1")]
+position = Vector2(88, 56)
+
+[node name="tile5" parent="tiles" unique_id=8555250 instance=ExtResource("3_lf3p4")]
+position = Vector2(88, 72)
+
+[node name="tile8" parent="tiles" unique_id=260681053 instance=ExtResource("3_lf3p4")]
+position = Vector2(104, 72)
+
+[node name="tile10" parent="tiles" unique_id=1632574219 instance=ExtResource("3_lf3p4")]
+position = Vector2(120, 72)
+
+[node name="tile" parent="tiles" unique_id=1890614271 instance=ExtResource("4_8hd6v")]
+position = Vector2(104, 88)
+
+[node name="tile11" parent="tiles" unique_id=1044711388 instance=ExtResource("3_lf3p4")]
+position = Vector2(88, 136)
+
+[node name="static-tile" parent="." unique_id=82892512 instance=ExtResource("7_f7u7y")]
+position = Vector2(56, 120)
+
+[node name="player" parent="." unique_id=597716857 instance=ExtResource("8_jq2cn")]
+z_index = 2
+position = Vector2(88, 55)
+
+[node name="box" parent="." unique_id=2126272801 instance=ExtResource("7_045es")]
+position = Vector2(64, 64)

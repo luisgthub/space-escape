@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c28jmemk3tgiv"]
+
+[ext_resource type="Texture2D" uid="uid://coautmhr0n4u4" path="res://assets/gear.png" id="1_u3nac"]
+[ext_resource type="Script" uid="uid://cxugvbj10hisd" path="res://gear.gd" id="1_y8ccp"]
+[ext_resource type="Texture2D" uid="uid://cy585uyncyv5c" path="res://assets/gear-particle.png" id="3_jnell"]
+[ext_resource type="AudioStream" uid="uid://gwsnxpkgqn88" path="res://sounds/powerUp.wav" id="4_gti5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnell"]
+size = Vector2(12, 12)
+
+[sub_resource type="Animation" id="Animation_u3nac"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_y8ccp"]
+resource_name = "idle"
+length = 1.3333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.86),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jnell"]
+_data = {
+&"RESET": SubResource("Animation_u3nac"),
+&"idle": SubResource("Animation_y8ccp")
+}
+
+[node name="gear" type="Area2D" unique_id=1916432333]
+z_index = 2
+position = Vector2(0, -4)
+script = ExtResource("1_y8ccp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=257718462]
+shape = SubResource("RectangleShape2D_jnell")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=992126690]
+texture = ExtResource("1_u3nac")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1546921598]
+libraries/ = SubResource("AnimationLibrary_jnell")
+autoplay = &"idle"
+speed_scale = 3.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=929413888]
+z_index = -1
+texture = ExtResource("3_jnell")
+lifetime = 1.2
+direction = Vector2(0, 1)
+spread = 120.0
+gravity = Vector2(0, -10)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+angular_velocity_min = 2.0
+angular_velocity_max = 2.0
+scale_amount_min = 0.3
+
+[node name="pick" type="AudioStreamPlayer2D" parent="." unique_id=1254921033]
+stream = ExtResource("4_gti5y")
+
+[connection signal="body_entered" from="." to="." method="_on_player_body_entered"]

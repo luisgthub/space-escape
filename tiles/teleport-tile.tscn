@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d3vsvbpoq71u7"]
+
+[ext_resource type="PackedScene" uid="uid://cv0t7fod8u4s1" path="res://tiles/tile.tscn" id="1_whd5c"]
+[ext_resource type="Script" uid="uid://kab4lpne2jcs" path="res://tiles/teleport_tile.gd" id="2_5k64x"]
+[ext_resource type="Texture2D" uid="uid://sas64mmd22ry" path="res://assets/tiles/teleport-lever.png" id="3_5k64x"]
+[ext_resource type="AudioStream" uid="uid://cfgqxvg8plk11" path="res://sounds/tilecolisionerror.wav" id="4_pviql"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhunq"]
+font_size = 2
+
+[node name="tile" unique_id=1890614271 instance=ExtResource("1_whd5c")]
+script = ExtResource("2_5k64x")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1410453024]
+texture = ExtResource("3_5k64x")
+
+[node name="Label" type="Label" parent="." index="2" unique_id=880543767]
+offset_left = -5.0
+offset_top = -11.0
+offset_right = 5.0
+offset_bottom = -8.0
+text = "Space"
+label_settings = SubResource("LabelSettings_bhunq")
+
+[node name="Marker2D" type="Marker2D" parent="." index="3" unique_id=2044583594]
+
+[node name="use" type="AudioStreamPlayer2D" parent="." index="4" unique_id=1321757889]
+stream = ExtResource("4_pviql")
+
+[connection signal="body_entered" from="." to="." method="_on_body_lever_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_lever_exited"]

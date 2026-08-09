@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cv0t7fod8u4s1"]
+
+[ext_resource type="Script" uid="uid://bxfyxrd6ua66o" path="res://tiles/tile.gd" id="1_fsyhc"]
+[ext_resource type="Texture2D" uid="uid://b6bui6k0guefu" path="res://assets/tiles/vertical-lever-off.png" id="2_fsyhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsyhc"]
+size = Vector2(16, 16)
+
+[node name="tile" type="Area2D" unique_id=1890614271]
+script = ExtResource("1_fsyhc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1410453024]
+texture = ExtResource("2_fsyhc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=582897854]
+shape = SubResource("RectangleShape2D_fsyhc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

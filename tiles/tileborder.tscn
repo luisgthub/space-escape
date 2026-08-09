@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://djkr5v8i4nkks"]
+
+[ext_resource type="PackedScene" uid="uid://cv0t7fod8u4s1" path="res://tiles/tile.tscn" id="1_0bgmx"]
+[ext_resource type="Script" uid="uid://mfqrhmmkkl2e" path="res://tiles/tileborder.gd" id="2_p510v"]
+[ext_resource type="Texture2D" uid="uid://ce5b86s5eqtwe" path="res://assets/tiles/tiletest.png" id="3_wy1b5"]
+
+[node name="tile" unique_id=1890614271 instance=ExtResource("1_0bgmx")]
+script = ExtResource("2_p510v")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1410453024]
+texture = ExtResource("3_wy1b5")

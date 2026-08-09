@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://x4l4vq4xxcbt"]
+
+[ext_resource type="PackedScene" uid="uid://cv0t7fod8u4s1" path="res://tiles/tile.tscn" id="1_evtv1"]
+[ext_resource type="Script" uid="uid://dg564q6bgnhry" path="res://tiles/lever_vertical_tile.gd" id="2_evtv1"]
+[ext_resource type="AudioStream" uid="uid://5h4ls0khdaqo" path="res://sounds/playerwalk.wav" id="3_evtv1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhunq"]
+font_size = 2
+
+[node name="tile" unique_id=1890614271 instance=ExtResource("1_evtv1")]
+script = ExtResource("2_evtv1")
+
+[node name="Label" type="Label" parent="." index="2" unique_id=880543767]
+offset_left = -5.0
+offset_top = -11.0
+offset_right = 5.0
+offset_bottom = -8.0
+text = "Space"
+label_settings = SubResource("LabelSettings_bhunq")
+
+[node name="use" type="AudioStreamPlayer2D" parent="." index="3" unique_id=1004982121]
+stream = ExtResource("3_evtv1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_lever_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_lever_exited"]

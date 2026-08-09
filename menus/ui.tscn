@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cbcdwlwob7ynr"]
+
+[ext_resource type="Script" uid="uid://cdwotma6rri0u" path="res://menus/ui.gd" id="1_yj4y8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n54ej"]
+font_size = 4
+
+[node name="ui" type="CanvasLayer" unique_id=1103247525]
+script = ExtResource("1_yj4y8")
+
+[node name="Label" type="Label" parent="." unique_id=280907765]
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = 9.0
+label_settings = SubResource("LabelSettings_n54ej")
